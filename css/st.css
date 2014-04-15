@@ -1,0 +1,41 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, div
+{
+    padding: 0;
+	margin: 0;
+	list-style-type: none;
+	text-decoration: none;
+	color: #aaaaaa;
+}
+.topMenu .icon
+{
+	margin-left: 25px;
+}
+.leftMenu
+{
+	margin-top: 50px;
+	height: 100%;
+	width: 250px;
+	background-color: #262626 ;
+	
+}
+.leftMenu nav ul li
+{
+	margin-left:25px;
+}
+.leftMenu nav ul li a
+{
+	color: #d5d5d5;
+	display: inline-block;
+	font-size: 20px;
+	margin-top: 15px;
+	
+}
+.topMenu .navbar-right li
+{
+	margin-right: 25px;
+}
+
