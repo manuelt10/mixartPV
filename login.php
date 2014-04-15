@@ -20,12 +20,12 @@
 	<body>
 		<div class="container" align="center">
 	
-	      <form id="signinForm" class="form-signin" role="form">
+	      <form id="signinForm" class="form-signin" role="form" method="post" action="functions/login.php">
 	      	<div class="logo">
 	      	</div>
 	        <h2 class="form-signin-heading">Ingrese por favor</h2>
-	        <input type="email" class="form-control" placeholder="Usuario" required="" autofocus="">
-	        <input type="password" class="form-control" placeholder="Contraseña" required="">
+	        <input type="text" class="form-control" placeholder="Usuario" required="true" autofocus="" name="username">
+	        <input type="password" class="form-control" placeholder="Contraseña" required="true" name="password">
 	        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 	      </form>
 	
