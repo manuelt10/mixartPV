@@ -14,6 +14,7 @@ function autoLoader($class)
 }
 spl_autoload_register('autoLoader');
 
+$db = new mysqlManager();
 $usr = new user($session["user"]);
 $usr_menus = $usr->get_user_menus();
 ?>
@@ -24,10 +25,12 @@ $usr_menus = $usr->get_user_menus();
 		<title>MixArt - PV</title>
 		<meta name="description" content="">
 		<meta name="author" content="MixArt">
+		
+		<script src="js/jquery.js" type="text/javascript"></script>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="favicon.png">
 		
+		<link rel="shortcut icon" href="favicon.png">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/st.css" rel="stylesheet">
@@ -63,11 +66,37 @@ $usr_menus = $usr->get_user_menus();
 					{
 						?>
 						<li>
-							<a href="#"><?php echo $um->menu; ?></a>
-						</li>
+							<a href="#" class="menuHeader"><?php echo $um->menu; ?></a>
+							<?php 
+							$form_query = $db->selectRecord('v_menu_form', array('id_form' ,'form', 'form_name'), array('id_menu' => $um->id_menu));
+							if($form_query->rowcount > 0)
+							{
+								?>
+								<ul style="display: none" class="subMenu">
+									<?php 
+									foreach($form_query->data as $fq)
+									{
+										?>
+										<li><?php echo $fq->form_name; ?></li>
+										<?php
+									}
+									?>
+								</ul>
+								<?php
+							}
+							?>
+							</li>
 						<?php 
 					}
 					?>
 				</ul>
 			</nav>
 		</div>
+		<script>
+			$(function()
+			{
+				$('.menuHeader').click(function(){
+					$(this).siblings('.subMenu').toggle('fast');
+				});
+			});
+		</script>
