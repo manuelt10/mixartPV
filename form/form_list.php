@@ -12,7 +12,7 @@
 			<th>Nombre</th>
 			<th>Archivo</th>
 			<th>Fecha Creaci&oacute;n</th>
-			<th>Accion</th>
+			<th>Acci&oacute;n</th>
 		</tr>
 	</thead>
 	<tbody>

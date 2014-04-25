@@ -14,7 +14,7 @@ require_once('template/hea.php');
 				else
 				{
 					?>
-					no existe
+					<span class="error-label">no existe</span>
 					<?php	
 				}
 			}
