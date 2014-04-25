@@ -34,6 +34,10 @@ h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, div
 	margin-top: 15px;
 	
 }
+.leftMenu .subMenu li a
+{
+	font-size: 14px;
+}
 .topMenu .navbar-right li
 {
 	margin-right: 25px;
@@ -41,7 +45,14 @@ h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, div
 .formWrapper
 {
 	position: fixed;
-	top: 50px;
-	left: 250px;
+	top: 60px;
+	left: 260px;
 }
-
+.table thead tr th, .table tbody tr td
+{
+	color: #000000;
+}
+.error-label
+{
+	color: #AC2925;
+}

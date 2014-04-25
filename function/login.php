@@ -1,10 +1,5 @@
 <?php 
-function autoLoader($class)
-{
-    $path = "../classes/$class.php";
-    include $path;
-}
-spl_autoload_register('autoLoader');
+require_once('loader.php');
 
 if(empty($_POST["username"]) or empty($_POST["password"]))
 {

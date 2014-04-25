@@ -1,6 +1,7 @@
 <?php 
 session_start();
 $session = $_SESSION;
+unset ($_SESSION["error"]);
 session_write_close();
 if(empty($session["user"]))
 {
@@ -77,7 +78,7 @@ $usr_menus = $usr->get_user_menus();
 									foreach($form_query->data as $fq)
 									{
 										?>
-										<li><?php echo $fq->form_name; ?></li>
+										<li><a href="?form=<?php echo $fq->id_form ?>"><?php echo $fq->form_name; ?></a></li>
 										<?php
 									}
 									?>
