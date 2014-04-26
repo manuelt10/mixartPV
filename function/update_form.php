@@ -17,11 +17,13 @@ if(!empty($session["user"]) and !empty($_POST["id_form"]))
 		//file can't exist
 			$form_name = $sM->cleanVariable($_POST["form_name"]);
 			$form_description = $sM->cleanVariable($_POST["form_description"]);
+			$current_date = date('Y-m-d H:i:s');
 			$records = array(
 				'form' => $_POST["form_archive"],
 				'form_name' => $form_name,
 				'description' => $form_description,
-				'created_by' => $session["user"]
+				'updated_by' => $session["user"],
+				'updated_date' => $current_date
 			);
 			
 			//insert

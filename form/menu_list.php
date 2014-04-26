@@ -1,5 +1,5 @@
 <?php 
-$menu_list = $db->selectRecord('app_menu');
+$menu_list = $db->selectRecord('app_menu', NULL, NULL, array('id_menu' => 'desc'));
 ?>
 <legend>Listado de Men&uacute;s</legend>
 <a class="btn btn-default" href="?form=4">Nuevo</a>
@@ -21,7 +21,7 @@ $menu_list = $db->selectRecord('app_menu');
 				<td><?php echo $m->id_menu; ?></td>
 				<td><?php echo $m->menu; ?></td>
 				<td><?php echo $m->created_date ?></td>
-				<td><a class="btn btn-default" href="#">Modificar</a></td>
+				<td><a class="btn btn-default" href="?form=5&id=<?php echo $m->id_menu; ?>">Modificar</a></td>
 			</tr>
 			<?php
 		}

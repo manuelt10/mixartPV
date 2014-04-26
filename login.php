@@ -20,7 +20,7 @@
 	<body>
 		<div class="container" align="center">
 	
-	      <form id="signinForm" class="form-signin" role="form" method="post" action="functions/login.php">
+	      <form id="signinForm" class="form-signin" role="form" method="post" action="function/login.php">
 	      	<div class="logo">
 	      	</div>
 	        <h2 class="form-signin-heading">Ingrese por favor</h2>

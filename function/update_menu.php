@@ -11,29 +11,30 @@ $usr = new user($session["user"]);
 
 if(!empty($session["user"]))
 {
-	if(!empty($_POST["menu"]))
+	if(!empty($_POST["menu"]) or !empty($_POST["id_menu"]))
 	{
 		$menu = $sM->cleanVariable($_POST["menu"]);
 		$description = $sM->cleanVariable($_POST["menu_description"]);
+		$current_date = date('Y-m-d H:i:s');
 		$records = array(
 		"id_company" => $usr->userdata->id_company,
 		"menu" => $menu,
 		"description" => $description,
-		"created_by" => $session["user"]
+		"updated_by" => $session["user"],
+		"updated_date" => $current_date
 		);
 		
-		$insert = $db->insertRecord('app_menu', $records);
-		
+		$db->updateRecord('app_menu', $records, array('id_menu' => $_POST["id_menu"]));
+		$db->deleteRecord('app_menu_form',array('id_menu' => $_POST["id_menu"]));
 		foreach($_POST["menu_forms"] as $mf => $val)
 		{
 			$records = array(
-				'id_menu' => $insert->lastid,
+				'id_menu' => $_POST["id_menu"],
 				'id_form' => $val,
 				'created_by' => $session["user"]
 			);
 			$db->insertRecord('app_menu_form', $records);
 		}
-		
 		header('Location: ../back.php?form=6');
 	}
 }
