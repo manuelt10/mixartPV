@@ -9,6 +9,7 @@ $db = new mysqlManager();
 $sM = new stringManager();
 $usr = new user($session["user"]);
 
+
 if(!empty($session["user"]))
 {
 	if(!empty($_POST["menu"]))

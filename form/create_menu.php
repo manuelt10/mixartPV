@@ -2,7 +2,7 @@
 	<fieldset class="form-group">
 		<legend>Creaci&oacute;n de Men&uacute;s</legend>
 		<input type="text" name="menu" class="form-control" placeholder="nombre" maxlength="25" required><br>
-		<textarea class="form-control" name="menu_description"></textarea><br>
+		<textarea class="form-control" name="menu_description" placeholder="Descripción"></textarea><br>
 	</fieldset>
 	<fieldset class="form-group">
 		<?php 

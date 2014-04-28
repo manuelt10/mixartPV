@@ -9,8 +9,8 @@ if(!empty($_GET["id"]))
 		<input type="hidden" name="id_menu" value="<?php echo $_GET["id"] ?>">
 		<fieldset class="form-group">
 			<legend>Actualizaci&oacute;n de Men&uacute;s</legend>
-			<input type="text" name="menu" class="form-control" placeholder="nombre" maxlength="25" required value="<?php echo $menu->menu ?>"><br>
-			<textarea class="form-control" name="menu_description"><?php echo $menu->description ?></textarea><br>
+			<input type="text" name="menu" class="form-control" placeholder="Nombre" maxlength="25" required value="<?php echo $menu->menu ?>"><br>
+			<textarea class="form-control" name="menu_description" placeholder="Descripción"><?php echo $menu->description ?></textarea><br>
 		</fieldset>
 		<fieldset class="form-group">
 			<?php 
