@@ -38,6 +38,6 @@ if(!empty($session["user"]))
 		header('Location: ../back.php?form=6');
 	}
 }
-
+header('Location: '. $_SERVER["HTTP_REFERER"]);
 
 ?>

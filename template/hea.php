@@ -48,7 +48,7 @@ $usr_menus = $usr->get_user_menus();
 				 		<ul class="dropdown-menu">
 			                <li><a href="#">Panel de Control</a></li>
 			                <li class="divider"></li>
-			                <li><a href="#">Salir</a></li>
+			                <li><a href="function/logout.php">Salir</a></li>
 		                </ul>
 				 	</li>
 				 	

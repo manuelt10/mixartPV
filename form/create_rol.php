@@ -24,7 +24,7 @@
 		<button type="button" class="btn btn-default add_left">></button>
 		<select size="10" class="role_list select_menu_add" multiple></select>
 		<br>
-		<button type="submit" class="btn btn-default">Enviar</button><a href="back.php?form=2" class="btn btn-danger">Cancelar</a>
+		<button type="submit" class="btn btn-default">Enviar</button><a href="back.php?form=7" class="btn btn-danger">Cancelar</a>
 		<div class="selected_values">
 			
 		</div>

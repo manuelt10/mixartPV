@@ -5,6 +5,11 @@ class imageManager
 	 * createThumbnailJPEG: Crea un thumbnail para JPEG 
 	 * Calidad en JPEG o JPG es de 0 a 100, siendo 100 la mejor calidad
 	 */
+	private $filename;
+	private $filextension;
+	private $filesize;
+	 
+	
 	public function createThumbnailJPEG($path, $imagename, $thumbpath, $thumbWidth,  $quality)
 	{
 		 $img = imagecreatefromjpeg( "{$path}{$imagename}" );
@@ -27,7 +32,42 @@ class imageManager
 		 imagejpeg($img, $path . $imagename, $quality); //75 quality setting 
 		 imagedestroy($img);
 	}
-	
+	/*
+	 * cropping function
+	 * path is where the file will be saved.
+	 * image is the image.
+	 * imagename is the name of the file.
+	 * x,y,width and heigh is where will be cropped and the size.
+	 */
+	 public function cropImage($path, $image, $imagename, $x, $y, $width, $height)
+	 {
+	 	$ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+		switch($ext)
+		{
+			case 'png': 
+				$copy = imagecreatefrompng($image['tmp_name']);
+				$new = ImageCreateTrueColor($width, $height);
+				imagecopyresampled($new, $copy, 0, 0,$x, $y ,$width, $height, $width, $height);
+				header('Content-Type: image/png');
+				imagepng($new, $path .  $imagename  . '.' . $ext, 0);
+				imagedestroy($new);
+				return TRUE;
+				break;
+			case ('jpeg' or 'jpg'): 
+				$copy = imagecreatefromjpeg($image['tmp_name']);
+				$new = ImageCreateTrueColor($width, $height);
+				imagecopyresampled($new, $copy, 0, 0,$x, $y, $width, $height, $width, $height);
+				header('Content-Type: image/jpeg');
+				imagejpeg($new, $path . $imagename  . '.' . $ext, 100);
+				imagedestroy($new);
+				return TRUE;
+				break;
+			default: 
+				return FALSE;
+				break;
+		}
+	 }
+	 
 	/*
 	 * createThumbnailPNG: Crea thumbnails para PNG 
      * Calidad en PNG es de 0 a 9, siendo 0 la mejor calidad
@@ -55,7 +95,7 @@ class imageManager
 		 imagecopyresampled( $tmp_img, $img, 0, 0, $srcx, $srcy, $new_width, $new_height, $width, $height);
 		 #imagepng( $tmp_img, "{$thumbpath}{$imagename}", 0);
 		 
-		 imagepng($tmp_img, $path . $imagename, $quality); //75 quality setting 
+		 imagepng($tmp_img, $thumbpath . $imagename, $quality); //75 quality setting 
 		 imagedestroy($img);
 	}
 	

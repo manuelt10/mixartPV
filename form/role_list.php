@@ -22,7 +22,7 @@
 				<td><?php echo $r->id_role; ?></td>
 				<td><?php echo $r->role; ?></td>
 				<td><?php echo $r->created_date ?></td>
-				<td><a href="#" class="btn btn-default">Modificar</a></td>
+				<td><a href="?form=9&id=<?php echo $r->id_role; ?>" class="btn btn-default">Modificar</a></td>
 			</tr>
 			<?php
 		}

@@ -34,7 +34,7 @@ class user extends mysqlManager
 	{
 		$where = Array('id_user' => $this->userdata->id_user);
 		$columns = Array('id_role','role');
-		$query = $this->selectRecord('v_user_role',$columns,$where);
+		$query = $this->selectRecord('v_user_role',$columns,$where,array('role' => 'desc'));
 		$this->roles = $query->data[0];
 		return $this->roles;
 	}
@@ -47,7 +47,7 @@ class user extends mysqlManager
 		}
 		$where = Array('id_role' => $this->roles->id_role);
 		$columns = Array('id_menu','menu');
-		$query = $this->selectRecord('v_role_menu',$columns, $where);
+		$query = $this->selectRecord('v_role_menu',$columns, $where, array('menu' => 'asc'));
 		$this->menus = $query->data;
 		return $this->menus;
 	}
