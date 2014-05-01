@@ -75,7 +75,7 @@ $(document).ready(function() {
 			        }
 			        else
 			        {
-			        	alert('The image dimension need to be 565x465.');
+			        	alert('La imagen debe ser minimo 400x400.');
 			        	var imageUploader = $('.imageUploader');
 			        	imageUploader.replaceWith( imageUploader = imageUploader.clone( true ) );
 			        	$('.projImage').empty();

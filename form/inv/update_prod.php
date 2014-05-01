@@ -40,7 +40,14 @@ if(!empty($_GET["id"]))
 		<label>Tamaño de la imagen debe ser minimo 400x400, en caso de ser mayor se cortara.</label>
 		<input type="file" name="image" class="imageUploader" accept="image/*"><br>
 		<div class="actualImage projImage">
-			<img src="img/inv/<?php echo $record->image ?>">
+			<?php 
+			if(!empty($record->image))
+			{
+				?>
+				<img src="img/cli/<?php echo $record->image ?>">
+				<?php
+			}
+			?>
 		</div>
 		<input type="hidden" class="coorX" name="x" value="0">
 		<input type="hidden" class="coorY" name="y" value="0">

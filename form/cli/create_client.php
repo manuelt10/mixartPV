@@ -13,17 +13,18 @@
 		}
 </style>
 
-<form class="form-group" method="post" action="" enctype="multipart/form-data">
+<form class="form-group" method="post" action="function/cli/create_client.php" enctype="multipart/form-data">
 	<input type="hidden" name="id_company" value="<?php echo $usr->userdata->id_company ?>">
 	<fieldset class="col-md-6">
 		<legend>Creación de Cliente</legend>
-		<input type="text" name="name" placeholder="Nombre del Cliente" class="form-control" required><br>
-		<textarea placeholder="Direccion Principal" class="form-control"></textarea><br>
-		<textarea placeholder="Direccion Secundaria" class="form-control"></textarea><br>
-		<input type="text" name="phone1" class="form-control" placeholder="Telefono Principal"><br>
-		<input type="text" name="phone2" class="form-control" placeholder="Telefono Secundario"><br>
+		<label class="black-label">Nombre del Cliente</label><input type="text" maxlength="100" name="name" placeholder="Nombre del Cliente" class="form-control" required><br>
+		<label class="black-label">Dirección Principal</label><textarea placeholder="Direccion Principal" name="address1" class="form-control" required></textarea><br>
+		<label class="black-label">Dirección Secundaria</label><textarea placeholder="Direccion Secundaria" name="address2" class="form-control"></textarea><br>
+		<label class="black-label">Telefono Principal</label><input maxlength="20" class="onlyNumber form-control" type="text" name="phone1"  placeholder="Telefono Principal" required><br>
+		<label class="black-label">Telefono Secundario</label><input maxlength="20" class="onlyNumber form-control" type="text" name="phone2" placeholder="Telefono Secundario"><br>
+		<label class="black-label">RNC</label><input type="text" name="rnc" class="onlyNumber form-control" maxlength="11" placeholder="rnc">
 		<label><input type="checkbox" name="active" value="1" checked> Activo</label><br>
-		<button type="submit" class="btn btn-default">Enviar</button><a href="back.php?form=10" class="btn btn-danger">Cancelar</a>
+		<button type="submit" class="btn btn-default">Enviar</button><a href="back.php?form=13" class="btn btn-danger">Cancelar</a>
 	</fieldset>
 	<fieldset class="col-md-6">
 		<legend>Imagen del Cliente</legend>
@@ -38,6 +39,23 @@
 	
 </form>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.onlyNumber').keydown(function(event) {
+        if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 
+            || event.keyCode == 27 || event.keyCode == 13 
+            || (event.keyCode == 65 && event.ctrlKey === true) 
+            || (event.keyCode >= 35 && event.keyCode <= 39)){
+                return;
+        }else {
+            if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+                event.preventDefault(); 
+            }   
+        }
+    });
+    
+});
+</script>
 <script type="text/javascript">
 	//Function to create image preview
 	function readURL(input) {
@@ -56,7 +74,7 @@
 			        }
 			        else
 			        {
-			        	alert('The image dimension need to be 565x465.');
+			        	alert('La imagen debe ser minimo 400x400.');
 			        	var imageUploader = $('.imageUploader');
 			        	imageUploader.replaceWith( imageUploader = imageUploader.clone( true ) );
 			        	$('.projImage').empty();
