@@ -1,5 +1,33 @@
 <?php 
-	$records = $db->selectRecord('cli_client',NULL,NULL,array('id_client' => 'desc'));
+	$nombre = '';
+	$direccion = '';
+	$telefono = '';
+	$rnc = '';
+	
+	if(!empty($_GET["name"]))
+	{
+		$nombre = trim($_GET["name"]);
+	}
+	if(!empty($_GET["address"]))
+	{
+		$direccion = trim($_GET["address"]);
+	}
+	if(!empty($_GET["phone"]))
+	{
+		$telefono = trim($_GET["telefono"]);
+	}
+	if(!empty($_GET["rnc"]))
+	{
+		$rnc = trim($_GET["rnc"]);
+	}
+	$where = array(
+		'id_company' => $usr->userdata->id_company,
+		'name' => '%' . $nombre . '%',
+		'address1' => '%' . $direccion . '%', 
+		'phone1' => '%' . $telefono . '%', 
+		'rnc' => '%' . $rnc . '%'
+	);
+	$records = $db->selectRecord('cli_client',NULL,$where,array('id_client' => 'desc'));
 ?>
 <legend>
 	Listado de Clientes
@@ -8,13 +36,20 @@
 
 
 <form class="form-inline">
+	<input type="hidden" name="form" value="<?php echo $_GET["form"] ?>">
 	<br>
 	<h4 class="black-label">Buscar</h4>
 	<div class="form-group">
-		<input type="text" name="Nombre" class="form-control">
+		<input type="text" name="name" value="<?php echo $nombre ?>" class="form-control" placeholder="Nombre">
 	</div>
 	<div class="form-group">
-		<input type="text" name="Codigo" class="form-control">
+		<input type="text" name="address" value="<?php echo $direccion ?>" class="form-control" placeholder="Direccion">
+	</div>
+	<div class="form-group">
+		<input type="text" name="phone"  value="<?php echo $telefono ?>" class="form-control" placeholder="Telefono">
+	</div>
+	<div class="form-group">
+		<input type="text" name="rnc"  value="<?php echo $rnc ?>" class="form-control" placeholder="RNC">
 	</div>
 	<button class="form-control">Buscar</button>
 </form> 
