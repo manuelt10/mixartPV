@@ -14,7 +14,7 @@ if(!empty($session["user"]))
 	{
 		if(is_numeric($_POST["unit_price"]) and is_numeric($_POST["unit_cost"]))
 		{
-			$product = $db->selectRecord('inv_product', NULL, array('id_product' => $_POST["id_product"]));
+			
 			$product = $product->data[0];
 			$name = $sM->cleanVariable($_POST["name"]);
 			$description = $sM->cleanVariable($_POST["description"]);

@@ -1,3 +1,12 @@
+<?php 
+session_start();
+if(!empty($_SESSION["iduser"]))
+{
+	header('Location: back.php');
+}
+session_write_close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
