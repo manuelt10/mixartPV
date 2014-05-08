@@ -26,15 +26,19 @@ if(!empty($session["user"]))
 		
 		$db->updateRecord('app_menu', $records, array('id_menu' => $_POST["id_menu"]));
 		$db->deleteRecord('app_menu_form',array('id_menu' => $_POST["id_menu"]));
-		foreach($_POST["menu_forms"] as $mf => $val)
+		if(!empty($_POST["menu_forms"]))
 		{
-			$records = array(
-				'id_menu' => $_POST["id_menu"],
-				'id_form' => $val,
-				'created_by' => $session["user"]
-			);
-			$db->insertRecord('app_menu_form', $records);
+			foreach($_POST["menu_forms"] as $mf => $val)
+			{
+				$records = array(
+					'id_menu' => $_POST["id_menu"],
+					'id_form' => $val,
+					'created_by' => $session["user"]
+				);
+				$db->insertRecord('app_menu_form', $records);
+			}
 		}
+		
 		header('Location: ../back.php?form=6');
 	}
 }

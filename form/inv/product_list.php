@@ -1,20 +1,21 @@
 <?php 
-	$nombre = '';
-	$codigo = '';
-	
+	$where = array(
+	'id_company' => $usr->userdata->id_company
+	);
 	if(!empty($_GET["nombre"]))
 	{
 		$nombre = trim($_GET["nombre"]);
+		$where[] = array('name' => '%' . $nombre . '%');
 	}
 	if(!empty($_GET["codigo"]))
 	{
 		$codigo = trim($_GET["codigo"]);
+		$where[] = array('cod_product' => '%' . $codigo . '%');
 	}
-	$where = array(
-	'id_company' => $usr->userdata->id_company,
-	'name' => '%' . $nombre . '%',
-	'cod_product' => '%' . $codigo . '%'
-	);
+	
+	
+	
+	
 	
 	
 	$records = $db->selectRecord('inv_product',NULL,$where,array('id_product' => 'desc'));

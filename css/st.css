@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, div
 	margin-top: 50px;
 	height: 100%;
 	width: 250px;
-	background-color: #262626 ;
+	background-color: #FFFFFF ;
 	
 }
 .leftMenu nav ul li
@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, div
 }
 .leftMenu nav ul li a
 {
-	color: #d5d5d5;
+	color: #000000;
 	display: inline-block;
 	font-size: 20px;
 	margin-top: 15px;
@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, div
 }
 .formWrapper
 {
-	position: fixed;
+	position: absolute;
 	top: 60px;
 	left: 260px;
 }

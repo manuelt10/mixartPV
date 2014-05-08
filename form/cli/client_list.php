@@ -1,32 +1,28 @@
 <?php 
-	$nombre = '';
-	$direccion = '';
-	$telefono = '';
-	$rnc = '';
 	
+	$where = array(
+		'id_company' => $usr->userdata->id_company
+		);
 	if(!empty($_GET["name"]))
 	{
 		$nombre = trim($_GET["name"]);
+		$where[] = array('name' => '%' . $nombre . '%');
 	}
 	if(!empty($_GET["address"]))
 	{
 		$direccion = trim($_GET["address"]);
+		$where[] = array('address1' => '%' . $direccion . '%');
 	}
 	if(!empty($_GET["phone"]))
 	{
 		$telefono = trim($_GET["telefono"]);
+		$where[] = array('phone1' => '%' . $telefono . '%');
 	}
 	if(!empty($_GET["rnc"]))
 	{
 		$rnc = trim($_GET["rnc"]);
+		$where[] = array('rnc' => '%' . $rnc . '%');
 	}
-	$where = array(
-		'id_company' => $usr->userdata->id_company,
-		'name' => '%' . $nombre . '%',
-		'address1' => '%' . $direccion . '%', 
-		'phone1' => '%' . $telefono . '%', 
-		'rnc' => '%' . $rnc . '%'
-	);
 	$records = $db->selectRecord('cli_client',NULL,$where,array('id_client' => 'desc'));
 ?>
 <legend>
