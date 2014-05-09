@@ -27,7 +27,7 @@ $records = $db->selectRecord('v_transaction_header',NULL,$where,array('id_transa
 			<td><?php echo $t->subtotal; ?></td>
 			<td><?php echo $t->itbis; ?></td>
 			<td><?php echo $t->total; ?></td>
-			<!--<td><a href="?form=15&id=<?php echo $t->id_client ?>" class="btn btn-default">Modificar</a></td>-->
+			<td><a target="_blank" href="report/facturation.php?id=<?php echo $t->id_transaction ?>" class="btn btn-default">Reimprimir</a></td>
 		</tr>
 		<?php
 	}
