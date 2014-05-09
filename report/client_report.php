@@ -8,7 +8,7 @@ if(!empty($session["user"]))
 	require_once('loader.php');
 	$usr = new user($session["user"]);
 	$db = new mysqlManager();
-	$date = date('Y/m/d H:i:s');
+	$date = date('d-m-Y');
 	
 	$id_user = $usr->userdata->id_user;
 	$name_user = $usr->userdata->name;
@@ -39,7 +39,7 @@ if(!empty($session["user"]))
 	</page_header>
 	
 	<h1>Reporte General de Cliente</h1>
-	<h3>Generado el $date</h3>
+	<h4>Generado el $date</h4>
 	<table>
 		<tr class='header'>
 			<td width='50'><strong>ID</strong></td>
