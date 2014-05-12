@@ -4,13 +4,13 @@
 	Grafica de Ingresos
 </legend>
 <div class="row">
-	<div class=".col-md-6">
+	<div class="col-md-8">
 		<div id="graph-wrapper">
 		    <div class="graph-info">
 		        <!--<a href="javascript:void(0)" class="2013">2013</a>
 		        <a href="javascript:void(0)" class="2014">2014</a>-->
 		 
-		        <a href="#" id="bars"><span></span></a>
+		        <!--<a href="#" id="bars"><span></span></a>-->
 		        <a href="#" id="lines" class="active"><span></span></a>
 		    </div>
 		 
@@ -20,9 +20,39 @@
 		    </div>
 		</div>
 	</div>
-	<div class=".col-md-6">
+	<div class="col-md-4">
 		<legend>Productos Mas vendidos</legend>
+		<table class="table">
+		<?php 
+		$selled_product = $db->selectRecord('v_selled_product', NULL,array('id_company' => $usr->userdata->id_company),NULL,array(0,5));
+		foreach($selled_product->data as $sp)
+		{
+			?>
+			<tr>
+				<td><?php echo $sp->id_product ?></td>
+				<td><?php echo $sp->name ?></td>
+				<td><?php echo $sp->quantity ?></td>
+			</tr>
+			<?php
+		}
+		?>
+		</table>
 		<legend>Productos Casi agotados</legend>
+		<table class="table">
+		<?php
+		$a_product = $db->selectRecord('v_exhausted_products', NULL, array('id_company' => $usr->userdata->id_company));
+		foreach($selled_product->data as $p)
+		{
+			?>
+			<tr>
+				<td><?php echo $p->id_product ?></td>
+				<td><?php echo $p->name ?></td>
+				<td><?php echo $p->existence ?></td>
+			</tr>
+			<?php
+		}
+		?>
+		</table>
 	</div>
 </div>
 

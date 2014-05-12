@@ -23,6 +23,7 @@ if(!empty($_POST["id_product"]) or !empty($_POST["quantity"]))
 			'id_product' => $v
 		);
 		$product = $db->selectRecord('inv_product', NULL, $where);
+		
 		$product = $product->data[0];
 		$total_cost = $product->unit_cost * $_POST["quantity"][$k];
 		$total = $total + $total_cost;
@@ -36,6 +37,10 @@ if(!empty($_POST["id_product"]) or !empty($_POST["quantity"]))
 			'total_cost' => $total_cost
 		);
 		$db->insertRecord('inv_product_entry_det', $records);
+		
+		$db->updateRecord('inv_product', 
+		array('existence' => $product->existence + $_POST["quantity"][$k]), 
+		array('id_product' => $product->id_product));
 	}
 	$db->updateRecord('inv_product_entry', array('total' => $total),array('id_product_entry' => $lastid));
 	header("Location: ../../back.php?form=17");

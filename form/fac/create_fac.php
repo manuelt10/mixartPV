@@ -77,6 +77,7 @@ $(function() {
 		var cod_product = $(this).parent().siblings('.cod_product').html();
 		var name = $(this).parent().siblings('.name').html();
 		var unit_cost = $(this).parent().siblings('.unit_cost').html();
+		var existence = $(this).parent().siblings('.existence').html();
 		var product_exist = false;
 		$('.productIdEntry').each(function(){
 			if(idproduct == $(this).val())
@@ -92,7 +93,7 @@ $(function() {
 					'<td class="cod_product">' + cod_product + '</td>' +
 					'<td class="name">' + name + '</td>' +
 					'<td class="unit_cost">' + unit_cost + '</td>' +
-					'<td class="quantity"><input type="number" name="quantity[]" min="0" class="form-control quantity" value="0"></td>' +
+					'<td class="quantity"><input type="number" name="quantity[]" min="0" max="' + existence + '" class="form-control quantity" value="0"></td>' +
 					'<td class="total">0</td>' +
 					'<td><button class="btn btn-danger removeProductEntry" type="button">X</button></td>' +
 				'</tr>');

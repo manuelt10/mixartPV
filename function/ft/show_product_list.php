@@ -24,6 +24,7 @@ if(!empty($session["user"]))
 				<th>Codigo</th>
 				<th>Nombre</th>
 				<th>Precio</th>
+				<th>Existencia</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,6 +36,7 @@ if(!empty($session["user"]))
 				<td class="cod_product"><?php echo $i->cod_product; ?></td>
 				<td class="name"><?php echo $i->name; ?></td>
 				<td class="unit_cost"><?php echo $i->unit_price; ?></td>
+				<td class="existence"><?php echo $i->existence; ?></td>
 				<td><button class="btn btn-default addProduct">Agregar Producto a Entrada</button></td>
 			</tr>
 			<?php

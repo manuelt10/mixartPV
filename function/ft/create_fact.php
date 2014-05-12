@@ -25,6 +25,7 @@ if(!empty($session["user"]))
 			if($_POST["quantity"][$k] > 0)
 			{
 				$product = $db->selectRecord('inv_product',NULL,array('id_product' => $v));
+				$product = $product->data[0];
 				$itbis = $product->data[0]->unit_price * $_POST["quantity"][$k] * 0.18;
 				$subtotal = $product->data[0]->unit_price * $_POST["quantity"][$k];
 				$records = array(
@@ -39,7 +40,9 @@ if(!empty($session["user"]))
 					'total' => $subtotal + $itbis
 				);
 				$db->insertRecord('ft_transaction_det', $records);
-				$db->updateRecord('', $records);
+				$db->updateRecord('inv_product', 
+				array('existence' => $product->existence - $_POST["quantity"][$k]), 
+				array('id_product' => $product->id_product));
 			}
 		}
 		header('Location: ../../report/facturation.php?id=' . $insert->lastid);

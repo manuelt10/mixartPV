@@ -77,7 +77,7 @@ $usr_menus = $usr->get_user_menus();
 						<li>
 							<a href="#" class="menuHeader"><?php echo $um->menu; ?></a>
 							<?php 
-							$form_query = $db->selectRecord('v_menu_form', array('id_form' ,'form', 'form_name'), array('id_menu' => $um->id_menu));
+							$form_query = $db->selectRecord('v_menu_form', array('id_form' ,'form', 'form_name', 'target'), array('id_menu' => $um->id_menu));
 							if($form_query->rowcount > 0)
 							{
 								?>
@@ -86,7 +86,7 @@ $usr_menus = $usr->get_user_menus();
 									foreach($form_query->data as $fq)
 									{
 										?>
-										<li><a href="?form=<?php echo $fq->id_form ?>"><?php echo $fq->form_name; ?></a></li>
+										<li><a href="?form=<?php echo $fq->id_form ?>" target="<?php echo $fq->target ?>"><?php echo $fq->form_name; ?></a></li>
 										<?php
 									}
 									?>
