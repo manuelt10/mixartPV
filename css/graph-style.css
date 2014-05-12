@@ -7,7 +7,7 @@
 	}
 .lines, .bars
 {
-	margin-left: 20px;
+	/*margin-left: 20px;*/
 }
 .graph-container, #tooltip, .graph-info a {
     background: #ffffff;
@@ -38,7 +38,7 @@
     width: inherit;
     height: inherit;
     top: 10px;
-    left: 25px;
+    left: 1px;
 }
  
 .graph-info {

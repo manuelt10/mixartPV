@@ -11,7 +11,7 @@
 		        <a href="javascript:void(0)" class="2014">2014</a>-->
 		 
 		        <!--<a href="#" id="bars"><span></span></a>-->
-		        <a href="#" id="lines" class="active"><span></span></a>
+		        <!--<a href="#" id="lines" class="active"><span></span></a>-->
 		    </div>
 		 
 		    <div class="graph-container">
