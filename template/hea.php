@@ -35,6 +35,14 @@ $usr_menus = $usr->get_user_menus();
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/st.css" rel="stylesheet">
+		<?php 
+		if(empty($_GET["form"]))
+		{
+			?>
+			<link href="css/graph-style.css" rel="stylesheet">
+			<?php
+		}
+		?>
 	</head>
 
 	<body>

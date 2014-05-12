@@ -18,6 +18,10 @@ require_once('template/hea.php');
 					<?php	
 				}
 			}
+			else
+			{
+					require_once('form/panel.php');
+			}
 			?>
 		</div>
 <?php 
