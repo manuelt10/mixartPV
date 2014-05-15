@@ -24,7 +24,7 @@
 				<td><?php echo $f->form_name; ?></td>
 				<td><?php echo $f->form; ?></td>
 				<td><?php echo $f->created_date ?></td>
-				<td><a href="?form=11&id=<?php echo $f->id_form ?>" class="btn btn-default">Modificar</a></td>
+				<td><a href="?form=3&id=<?php echo $f->id_form ?>" class="btn btn-default">Modificar</a></td>
 			</tr>
 			<?php
 		}
