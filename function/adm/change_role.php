@@ -14,5 +14,6 @@ if(!empty($session["user"]) and !empty($_POST["role"]))
 		'created_by' => $session["user"]
 	);
 	$db->insertRecord('usr_user_role', $records);
+	header('Location: ../../back.php?form=22');
 }
 ?> 
