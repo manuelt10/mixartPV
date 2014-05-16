@@ -93,3 +93,8 @@ h1, h2, h3, h4, h5, h6, p, a, ul, li, table, tr, td, div
 	z-index:1002;
 	overflow: auto;
 }
+.div_float div
+{
+	float: left;
+	margin-right: 50px;
+}

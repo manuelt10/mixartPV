@@ -1,4 +1,5 @@
 <?php 
+date_default_timezone_set ('America/La_Paz');
 session_start();
 $session = $_SESSION;
 session_write_close();

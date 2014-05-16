@@ -3,6 +3,7 @@ $date = date('d-m-Y');
 ?>
 <form method="get" action="report/sales_report.php" target="_blank">
 	<div class="form-group">
+		<legend>Reporte de Ventas</legend>
 		<label class="black-label">Fecha de Inicio</label>
 		<input type="date" name="fecha_inicio" class="form-control" value="<?php echo $date ?>">
 		<label class="black-label">Fecha de Final</label>

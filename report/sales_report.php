@@ -1,4 +1,6 @@
 <?php 
+#
+date_default_timezone_set ('America/La_Paz');
 session_start();
 $session = $_SESSION;
 session_write_close();
@@ -66,7 +68,8 @@ if(!empty($session["user"]))
 	$itbis = 0;
 	foreach($records->data as $c)
 	{
-		if((($c->created_date >= $_GET["fecha_inicio"]) and ($c->created_date <= $_GET["fecha_final"])) or (empty($_GET["fecha_inicio"]) or empty($_GET["fecha_final"])))
+		$newDate = date("Y-m-d", strtotime($c->created_date));
+		if((($newDate >= $_GET["fecha_inicio"]) and ($newDate <= $_GET["fecha_final"])) or (empty($_GET["fecha_inicio"]) or empty($_GET["fecha_final"])))
 		{
 		$total = $total + $c->total;
 		$subtotal = $subtotal + $c->subtotal;
