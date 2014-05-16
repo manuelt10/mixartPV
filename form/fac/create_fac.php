@@ -1,4 +1,4 @@
-<form class="form-group" method="post" action="function/ft/create_fact.php">
+<form id="factForm" class="form-group" method="post" action="function/ft/create_fact.php">
 	<input type="hidden" name="id_company" value="<?php echo $usr->userdata->id_company ?>">
 	<fieldset>
 		<legend>Datos del Cliente</legend>
@@ -8,7 +8,6 @@
 	<fieldset>
 		<div>
 			<button type="button" class="btn btn-default showLightbox">Agregar Productos</button>
-			<button type="submit" class="btn btn-success">Finalizar</button>
 		</div>
 		<legend>Listado de Productos</legend>
 		<table class="table">
@@ -45,6 +44,10 @@
 			</tbody>	
 		</table>
 	</fieldset>
+	<br>
+	<div>
+			<button type="submit" class="btn btn-success">Finalizar</button>
+		</div>
 </form>
 
 <div class="lighBoxContainer">
